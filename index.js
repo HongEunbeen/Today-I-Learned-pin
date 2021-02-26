@@ -1,18 +1,18 @@
 require('dotenv').config()
 const { Octokit } = require("@octokit/rest");
- 
+
 // Get the environment variables
 const {
     GIST_ID: gistId,
     GH_TOKEN: githubToken,
     DEV_USERNAME: devUsername
 } = process.env;
- 
+
 // Authentication
 const octokit = new Octokit({
     auth: `token ${githubToken}`
 });
- 
+
 // Function to update the gist contents
 async function updateGist() {
     let gist;
@@ -22,10 +22,10 @@ async function updateGist() {
     } catch (error) {
         console.error(`Unable to get gist\n${error}`);
     }
- 
+
     // Only one file was created, so fetch it's filename
     const filename = Object.keys(gist.data.files)[0];
- 
+
     try {
         // Update the gist
         // The description is displayed when the gist is pinned
@@ -36,7 +36,7 @@ async function updateGist() {
             description: `This is some description`,
             files: {
                 [filename]: {
-                    content: `This is some example content`
+                    content: `📜This is some example content📜`
                 }
             }
         });
@@ -44,7 +44,7 @@ async function updateGist() {
         console.error(`Unable to update gist\n${error}`);
     }
 }
- 
+
 (async () => {
     await updateGist();
-})();
+})(); 
