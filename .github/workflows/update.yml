@@ -1,0 +1,24 @@
+name: Update gist with latest songs
+on:
+  # THis option allows you to run the script manually
+  workflow_dispatch:
+ 
+  # This sets up a cron job that runs the script once a day
+  schedule:
+    - cron: "0 0 * * *"
+ 
+jobs:
+  # Create a job
+  blog-box:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # Install dependencies
+      - run: npm install
+      - name: Update
+        uses: ./
+        # Use the secrets as environment variables
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+          DEV_USERNAME: ${{ secrets.DEV_USERNAME }}

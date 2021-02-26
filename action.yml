@@ -1,0 +1,7 @@
+name: blog-box
+author: Hongeunbeen
+description: GitHub Action for updating a gist with your latest blog post.
+ 
+runs:
+  using: node12
+  main: ./index.js
