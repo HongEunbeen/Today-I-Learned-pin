@@ -1,0 +1,25 @@
+{
+  "name": "today-i-learned-pin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HongEunbeen/Today-I-Learned-pin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HongEunbeen/Today-I-Learned-pin/issues"
+  },
+  "homepage": "https://github.com/HongEunbeen/Today-I-Learned-pin#readme",
+  "dependencies": {
+    "@octokit/rest": "^18.2.1",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "wrap-ansi": "^7.0.0"
+  }
+}
