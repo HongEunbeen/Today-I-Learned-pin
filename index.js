@@ -12,12 +12,7 @@ const {
 const octokit = new Octokit({
     auth: `token ${githubToken}`
 });
-
-async function main() {
-    //const stats = await wakatime.getMyStats({ range: RANGE.LAST_7_DAYS });
-    await updateGist();
-}
-
+ 
 // Function to update the gist contents
 async function updateGist() {
     let gist;
@@ -27,19 +22,7 @@ async function updateGist() {
     } catch (error) {
         console.error(`Unable to get gist\n${error}`);
     }
-    if (!gist) return;
-
-
-    //core development
-    const lines = [];
-
-    lines.push("🌑");
-    lines.push("🌑");
-    lines.push("🌑");
-    lines.push("🌑");
-    
-    //if (lines.length == 0) return;
-
+ 
     // Only one file was created, so fetch it's filename
     const filename = Object.keys(gist.data.files)[0];
  
@@ -50,10 +33,10 @@ async function updateGist() {
         // to show more information when it's pinned
         await octokit.gists.update({
             gist_id: gistId,
+            description: `This is some description`,
             files: {
                 [filename]: {
-                    filename: "Week I Learned ✨",
-                    content:  wrapAnsi(lines.join("\n"), 60, { hard: true, trim: false }),
+                    content: `This is some example content`
                 }
             }
         });
@@ -63,5 +46,5 @@ async function updateGist() {
 }
  
 (async () => {
-    await main();
+    await updateGist();
 })();
