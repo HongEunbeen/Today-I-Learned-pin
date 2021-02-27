@@ -33,10 +33,10 @@ async function updateGist() {
         // to show more information when it's pinned
         await octokit.gists.update({
             gist_id: gistId,
-            description: `This is some description`,
+            description: `Today I Learned🌈`,
             files: {
                 [filename]: {
-                    content: `📜This is some example content📜`
+                    content: `todotodotodot`
                 }
             }
         });
